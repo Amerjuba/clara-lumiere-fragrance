@@ -26,6 +26,10 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
 
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=swap");
+
 @layer base {
   :root {
     /* Clara Lumiere Brand Colors */
@@ -39,11 +43,11 @@
     --popover-foreground: 265 4% 12.9%;
 
     /* Primary - Deep Forest Green #2b3531 */
-    --primary: 266 4% 20.8%;
-    --primary-foreground: 248 0.3% 98.4%;
+    --primary: 156 10% 19%;
+    --primary-foreground: 77 54% 51%;
 
     /* Secondary - Cream/Ivory */
-    --secondary: 248 0.7% 96.8%;
+    --secondary: 72 53% 52%;
     --secondary-foreground: 266 4% 20.8%;
 
     /* Muted */
@@ -51,7 +55,7 @@
     --muted-foreground: 257 4.6% 55.4%;
 
     /* Accent - Chartreuse #abc643 */
-    --accent: 248 0.7% 96.8%;
+    --accent: 78 53% 52%;
     --accent-foreground: 266 4% 20.8%;
 
     /* Luxury Gold */
