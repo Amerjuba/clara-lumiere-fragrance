@@ -29,7 +29,7 @@ const Footer = () => {
               in Norway, Denmark, and Sweden. Bringing the finest French-Emirati fragrance 
               artistry to the Nordic region.
             </p>
-            <div className="flex gap-4">
+            <div className="flex gap-4 text-accent">
               {socialLinks.map(social => <a key={social.label} href={social.href} className="w-10 h-10 rounded-full border border-primary-foreground/20 flex items-center justify-center hover:bg-primary-foreground/10 transition-colors duration-300" aria-label={social.label}>
                   <social.icon className="h-4 w-4" />
                 </a>)}
