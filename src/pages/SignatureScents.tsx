@@ -1,13 +1,25 @@
+import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import CartDrawer from '@/components/cart/CartDrawer';
 import ProductCard from '@/components/products/ProductCard';
 import { products } from '@/data/products';
-import { useLanguage } from '@/context/LanguageContext';
+import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
+
+type Subcategory = 'all' | 'for-her' | 'for-him' | 'oriental' | 'grand-collection';
+
+const subcategories = [
+  { id: 'all' as Subcategory, label: 'All' },
+  { id: 'for-her' as Subcategory, label: 'For Her' },
+  { id: 'for-him' as Subcategory, label: 'For Him' },
+  { id: 'oriental' as Subcategory, label: 'Oriental' },
+  { id: 'grand-collection' as Subcategory, label: 'Grand Collection' },
+];
 
 const SignatureScents = () => {
-  const { t } = useLanguage();
+  const [activeSubcategory, setActiveSubcategory] = useState<Subcategory>('all');
   const signatureProducts = products.filter(p => p.category === 'Signature Scents');
 
   return (
@@ -30,6 +42,28 @@ const SignatureScents = () => {
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Our curated collection of distinctive fragrances, each telling a unique story of elegance and sophistication.
             </p>
+          </div>
+        </section>
+
+        {/* Subcategory Filter */}
+        <section className="py-8 border-b border-border/50">
+          <div className="container">
+            <div className="flex flex-wrap justify-center gap-2">
+              {subcategories.map((sub) => (
+                <Button
+                  key={sub.id}
+                  variant={activeSubcategory === sub.id ? 'luxury' : 'outline'}
+                  size="sm"
+                  onClick={() => setActiveSubcategory(sub.id)}
+                  className={cn(
+                    'min-w-[100px]',
+                    activeSubcategory === sub.id && 'pointer-events-none'
+                  )}
+                >
+                  {sub.label}
+                </Button>
+              ))}
+            </div>
           </div>
         </section>
 
