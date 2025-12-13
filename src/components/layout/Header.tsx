@@ -38,12 +38,12 @@ const Header = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border/50">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-primary backdrop-blur-md border-b border-border/50">
       <div className="container">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <span className="text-2xl font-serif font-semibold tracking-wide text-foreground">
+            <span className="text-2xl font-serif font-semibold tracking-wide text-accent">
               Clara Lumiere
             </span>
           </Link>
@@ -52,7 +52,7 @@ const Header = () => {
           <nav className="hidden md:flex items-center gap-8">
             <Link
               to="/"
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-300 uppercase tracking-wider"
+              className="text-sm font-medium text-accent hover:text-accent/80 transition-colors duration-300 uppercase tracking-wider"
             >
               {t('nav.home')}
             </Link>
@@ -60,7 +60,7 @@ const Header = () => {
             {/* Products Dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <button className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-300 uppercase tracking-wider">
+                <button className="flex items-center gap-1 text-sm font-medium text-accent hover:text-accent/80 transition-colors duration-300 uppercase tracking-wider">
                   {t('nav.products')}
                   <ChevronDown className="h-4 w-4" />
                 </button>
@@ -81,13 +81,13 @@ const Header = () => {
 
             <a
               href="/#about"
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-300 uppercase tracking-wider"
+              className="text-sm font-medium text-accent hover:text-accent/80 transition-colors duration-300 uppercase tracking-wider"
             >
               {t('nav.about')}
             </a>
             <a
               href="/#contact"
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-300 uppercase tracking-wider"
+              className="text-sm font-medium text-accent hover:text-accent/80 transition-colors duration-300 uppercase tracking-wider"
             >
               {t('nav.contact')}
             </a>
@@ -98,7 +98,7 @@ const Header = () => {
             {/* Language Selector */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="icon" className="hidden sm:flex">
+                <Button variant="ghost" size="icon" className="hidden sm:flex text-accent hover:text-accent/80 hover:bg-primary/80">
                   <Globe className="h-5 w-5" />
                 </Button>
               </DropdownMenuTrigger>
@@ -119,7 +119,7 @@ const Header = () => {
             <Button
               variant="ghost"
               size="icon"
-              className="relative"
+              className="relative text-accent hover:text-accent/80 hover:bg-primary/80"
               onClick={() => setIsCartOpen(true)}
             >
               <ShoppingBag className="h-5 w-5" />
@@ -134,7 +134,7 @@ const Header = () => {
             <Button
               variant="ghost"
               size="icon"
-              className="md:hidden"
+              className="md:hidden text-accent hover:text-accent/80 hover:bg-primary/80"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -144,11 +144,11 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <nav className="md:hidden py-6 border-t border-border/50 animate-fade-in">
+          <nav className="md:hidden py-6 border-t border-accent/30 animate-fade-in">
             <div className="flex flex-col gap-4">
               <Link
                 to="/"
-                className="text-base font-medium text-foreground py-2 uppercase tracking-wider"
+                className="text-base font-medium text-accent py-2 uppercase tracking-wider"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {t('nav.home')}
@@ -158,7 +158,7 @@ const Header = () => {
               <div>
                 <button
                   onClick={() => setIsMobileProductsOpen(!isMobileProductsOpen)}
-                  className="flex items-center justify-between w-full text-base font-medium text-foreground py-2 uppercase tracking-wider"
+                  className="flex items-center justify-between w-full text-base font-medium text-accent py-2 uppercase tracking-wider"
                 >
                   {t('nav.products')}
                   <ChevronDown className={`h-4 w-4 transition-transform ${isMobileProductsOpen ? 'rotate-180' : ''}`} />
@@ -169,7 +169,7 @@ const Header = () => {
                       <Link
                         key={category.href}
                         to={category.href}
-                        className="text-sm text-muted-foreground hover:text-foreground py-2"
+                        className="text-sm text-accent/70 hover:text-accent py-2"
                         onClick={() => setIsMenuOpen(false)}
                       >
                         {category.name}
@@ -181,20 +181,20 @@ const Header = () => {
               
               <a
                 href="/#about"
-                className="text-base font-medium text-foreground py-2 uppercase tracking-wider"
+                className="text-base font-medium text-accent py-2 uppercase tracking-wider"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {t('nav.about')}
               </a>
               <a
                 href="/#contact"
-                className="text-base font-medium text-foreground py-2 uppercase tracking-wider"
+                className="text-base font-medium text-accent py-2 uppercase tracking-wider"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {t('nav.contact')}
               </a>
               
-              <div className="flex gap-2 pt-4 border-t border-border/50">
+              <div className="flex gap-2 pt-4 border-t border-accent/30">
                 {languages.map((lang) => (
                   <Button
                     key={lang.code}
