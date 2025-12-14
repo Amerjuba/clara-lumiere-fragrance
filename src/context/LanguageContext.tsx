@@ -58,7 +58,7 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.about': 'عنا',
     'nav.contact': 'اتصل بنا',
     'hero.title': 'اكتشف عطرك المميز',
-    'hero.subtitle': 'عطور فاخرة منتقاة من أرقى الحرفيين الفرنسيين والإماراتيين',
+    'hero.subtitle': 'عطور فاخرة وزيوت عطرية، مصنوعة لتدلل الحواس،  مصممة لتضفي الأناقة. حيث تصبح الرائحة فنًا.',
     'hero.cta': 'تسوق المجموعة',
     'hero.explore': 'استكشف',
     'products.featured': 'المجموعة المميزة',
