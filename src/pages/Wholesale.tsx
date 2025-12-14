@@ -18,9 +18,7 @@ const Wholesale = () => {
         {/* Hero Section */}
         <section className="py-20 bg-gradient-to-b from-primary/5 to-background">
           <div className="container text-center">
-            <h1 className="text-4xl font-serif font-semibold mb-6 text-center md:text-7xl text-primary-foreground">Royal Fragrance
-
- 
+            <h1 className="text-4xl font-serif font-semibold mb-6 text-center md:text-7xl text-primary-foreground">Royal Fragrance   
 Wholesale Essential Oils</h1>
             <p className="text-lg max-w-2xl mx-auto mb-8 text-primary">
               Partner with Royal Fragrance for premium essential oils. Bulk orders and competitive pricing for retailers and distributors.
