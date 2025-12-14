@@ -12,6 +12,8 @@ import SeaOfPerfumes from "./pages/SeaOfPerfumes";
 import OrientalOils from "./pages/OrientalOils";
 import MakeYourOwnBrand from "./pages/MakeYourOwnBrand";
 import Wholesale from "./pages/Wholesale";
+import AboutUs from "./pages/AboutUs";
+import ContactUs from "./pages/ContactUs";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,12 +28,14 @@ const App = () => (
             <Sonner />
             <BrowserRouter>
               <Routes>
-                <Route path="/" element={<Index />} />
+              <Route path="/" element={<Index />} />
                 <Route path="/signature-scents" element={<SignatureScents />} />
                 <Route path="/sea-of-perfumes" element={<SeaOfPerfumes />} />
                 <Route path="/oriental-oils" element={<OrientalOils />} />
                 <Route path="/make-your-own-brand" element={<MakeYourOwnBrand />} />
                 <Route path="/wholesale" element={<Wholesale />} />
+                <Route path="/about-us" element={<AboutUs />} />
+                <Route path="/contact-us" element={<ContactUs />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
