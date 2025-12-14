@@ -154,7 +154,7 @@ const Wholesale = () => {
                 Contact us today to discuss your wholesale needs and receive a customized quote.
               </p>
               <Button variant="luxury" size="lg" asChild>
-                <a href="mailto:info@claralumiere.com">Contact Us</a>
+                <a href="mailto:info@claralumiere.com" className="rounded-xl">Contact Us</a>
               </Button>
             </div>
           </div>
