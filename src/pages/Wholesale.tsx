@@ -4,10 +4,8 @@ import Footer from '@/components/layout/Footer';
 import CartDrawer from '@/components/cart/CartDrawer';
 import { Button } from '@/components/ui/button';
 import { Sparkles, Leaf, Building2, Flame, Heart } from 'lucide-react';
-
 const Wholesale = () => {
-  return (
-    <>
+  return <>
       <Helmet>
         <title>Wholesale Essential Oils | Clara Lumiere - Premium Bulk Orders</title>
         <meta name="description" content="Partner with Royal Fragrance for premium essential oils. Bulk orders and competitive pricing for retailers and distributors." />
@@ -20,14 +18,15 @@ const Wholesale = () => {
         {/* Hero Section */}
         <section className="py-20 bg-gradient-to-b from-primary/5 to-background">
           <div className="container text-center">
-            <h1 className="text-4xl md:text-5xl font-serif font-semibold text-foreground mb-6">
-              Wholesale Essential Oils
-            </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
+            <h1 className="text-4xl font-serif font-semibold mb-6 text-center md:text-7xl text-primary-foreground">Royal Fragrance
+
+ 
+Wholesale Essential Oils</h1>
+            <p className="text-lg max-w-2xl mx-auto mb-8 text-primary">
               Partner with Royal Fragrance for premium essential oils. Bulk orders and competitive pricing for retailers and distributors.
             </p>
             <Button variant="luxury" size="lg" asChild>
-              <a href="mailto:info@claralumiere.com">Request Quote</a>
+              <a href="mailto:info@claralumiere.com" className="rounded-md">Request Quote</a>
             </Button>
           </div>
         </section>
@@ -186,8 +185,6 @@ const Wholesale = () => {
       </main>
       
       <Footer />
-    </>
-  );
+    </>;
 };
-
 export default Wholesale;
