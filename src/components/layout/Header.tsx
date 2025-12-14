@@ -85,12 +85,12 @@ const Header = () => {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <a href="/#about" className="text-sm font-medium text-accent hover:text-accent/80 transition-colors duration-300 uppercase tracking-wider">
+            <Link to="/about-us" className="text-sm font-medium text-accent hover:text-accent/80 transition-colors duration-300 uppercase tracking-wider">
               {t('nav.about')}
-            </a>
-            <a href="/#contact" className="text-sm font-medium text-accent hover:text-accent/80 transition-colors duration-300 uppercase tracking-wider">
+            </Link>
+            <Link to="/contact-us" className="text-sm font-medium text-accent hover:text-accent/80 transition-colors duration-300 uppercase tracking-wider">
               {t('nav.contact')}
-            </a>
+            </Link>
           </nav>
 
           {/* Actions */}
@@ -144,12 +144,12 @@ const Header = () => {
                   </div>}
               </div>
               
-              <a href="/#about" className="text-base font-medium text-accent py-2 uppercase tracking-wider" onClick={() => setIsMenuOpen(false)}>
+              <Link to="/about-us" className="text-base font-medium text-accent py-2 uppercase tracking-wider" onClick={() => setIsMenuOpen(false)}>
                 {t('nav.about')}
-              </a>
-              <a href="/#contact" className="text-base font-medium text-accent py-2 uppercase tracking-wider" onClick={() => setIsMenuOpen(false)}>
+              </Link>
+              <Link to="/contact-us" className="text-base font-medium text-accent py-2 uppercase tracking-wider" onClick={() => setIsMenuOpen(false)}>
                 {t('nav.contact')}
-              </a>
+              </Link>
               
               <div className="flex gap-2 pt-4 border-t border-accent/30">
                 {languages.map(lang => <Button key={lang.code} variant={language === lang.code ? 'default' : 'outline'} size="sm" onClick={() => {
