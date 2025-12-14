@@ -24,7 +24,7 @@ const Wholesale = () => {
               Partner with Royal Fragrance for premium essential oils. Bulk orders and competitive pricing for retailers and distributors.
             </p>
             <Button variant="luxury" size="lg" asChild>
-              <a href="mailto:info@claralumiere.com" className="rounded-md">Request Quote</a>
+              <a href="mailto:info@claralumiere.com" className="rounded-xl">Request Quote</a>
             </Button>
           </div>
         </section>
