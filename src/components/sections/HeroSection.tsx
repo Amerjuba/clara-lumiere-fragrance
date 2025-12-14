@@ -43,10 +43,10 @@ const HeroSection = () => {
           opacity: 0
         }}>
             <Button variant="hero" size="lg" asChild>
-              <a href="#products">{t('hero.cta')}</a>
+              <a href="#products" className="rounded-xl">{t('hero.cta')}</a>
             </Button>
             <Button variant="heroOutline" size="lg" asChild>
-              <a href="#about">{t('hero.explore')}</a>
+              <a href="#about" className="rounded-xl">{t('hero.explore')}</a>
             </Button>
           </div>
         </div>
