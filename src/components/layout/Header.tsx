@@ -151,7 +151,7 @@ const Header = () => {
                 {t('nav.contact')}
               </Link>
               
-              <div className="flex gap-2 pt-4 border-t border-accent/30 bg-primary-foreground">
+              <div className="flex gap-2 pt-4 border-t border-accent/30 bg-primary-foreground py-[14px] px-[14px]">
                 {languages.map(lang => <Button key={lang.code} variant={language === lang.code ? 'default' : 'outline'} size="sm" onClick={() => {
               setLanguage(lang.code as 'en' | 'no' | 'ar');
               setIsMenuOpen(false);
