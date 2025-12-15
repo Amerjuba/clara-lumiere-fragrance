@@ -4,8 +4,10 @@ import Footer from '@/components/layout/Footer';
 import CartDrawer from '@/components/cart/CartDrawer';
 import { Button } from '@/components/ui/button';
 import { Sparkles, Palette, Package, Award, MessageSquare, Droplets, Crown, Rocket } from 'lucide-react';
+
 const MakeYourOwnBrand = () => {
-  return <>
+  return (
+    <>
       <Helmet>
         <title>Make Your Own Perfume Brand | Clara Lumiere - Custom Fragrance Creation</title>
         <meta name="description" content="Create your own luxury perfume brand with Clara Lumiere. From concept to launch, we partner with you to craft your signature fragrance." />
@@ -131,7 +133,7 @@ const MakeYourOwnBrand = () => {
                 Ready to bring your fragrance vision to life? Contact us to begin your collaborative journey with Clara Lumiere.
               </p>
               <Button variant="luxury" size="lg" asChild>
-                <a href="mailto:info@claralumiere.com" className="rounded-xl">Contact Us</a>
+                <a href="mailto:info@claralumiere.com">Contact Us</a>
               </Button>
             </div>
           </div>
@@ -139,6 +141,8 @@ const MakeYourOwnBrand = () => {
       </main>
       
       <Footer />
-    </>;
+    </>
+  );
 };
+
 export default MakeYourOwnBrand;
