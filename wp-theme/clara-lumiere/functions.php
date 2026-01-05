@@ -460,7 +460,7 @@ function clara_lumiere_get_full_translations() {
             'nav.about' => 'من نحن',
             'nav.contact' => 'اتصل بنا',
             'hero.title' => 'اكتشف عطرك المميز',
-            'hero.subtitle' => 'عطور فاخرة وزيوت عطرية، مصنوعة لتدلل الحواس',
+            'hero.subtitle' => 'عطور فاخرة وزيوت عطرية، مصنوعة لتدلل الحواس، مصممة لتضفي الأناقة. حيث تصبح الرائحة فنًا.',
             'hero.cta' => 'تسوق المجموعة',
             'hero.explore' => 'استكشف',
             'products.featured' => 'المجموعة المميزة',
