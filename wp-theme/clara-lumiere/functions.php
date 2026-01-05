@@ -26,6 +26,72 @@ function clara_lumiere_setup() {
         'script',
     ));
     
+    // Add block editor support
+    add_theme_support('wp-block-styles');
+    add_theme_support('align-wide');
+    add_theme_support('align-full');
+    add_theme_support('editor-styles');
+    add_editor_style('assets/css/editor-style.css');
+    add_theme_support('responsive-embeds');
+    add_theme_support('custom-spacing');
+    add_theme_support('custom-units', array('px', 'em', 'rem', 'vh', 'vw', '%'));
+    
+    // Add block patterns support
+    add_theme_support('block-template-parts');
+    
+    // Add custom color palette
+    add_theme_support('editor-color-palette', array(
+        array(
+            'name' => __('Primary', 'clara-lumiere'),
+            'slug' => 'primary',
+            'color' => '#2b3531',
+        ),
+        array(
+            'name' => __('Accent', 'clara-lumiere'),
+            'slug' => 'accent',
+            'color' => '#abc643',
+        ),
+        array(
+            'name' => __('Gold', 'clara-lumiere'),
+            'slug' => 'gold',
+            'color' => '#d4af37',
+        ),
+        array(
+            'name' => __('Background', 'clara-lumiere'),
+            'slug' => 'background',
+            'color' => '#ffffff',
+        ),
+        array(
+            'name' => __('Foreground', 'clara-lumiere'),
+            'slug' => 'foreground',
+            'color' => '#1a1a1a',
+        ),
+    ));
+    
+    // Add custom font sizes
+    add_theme_support('editor-font-sizes', array(
+        array(
+            'name' => __('Small', 'clara-lumiere'),
+            'size' => 14,
+            'slug' => 'small',
+        ),
+        array(
+            'name' => __('Normal', 'clara-lumiere'),
+            'size' => 16,
+            'slug' => 'normal',
+        ),
+        array(
+            'name' => __('Large', 'clara-lumiere'),
+            'size' => 24,
+            'slug' => 'large',
+        ),
+        array(
+            'name' => __('Extra Large', 'clara-lumiere'),
+            'size' => 32,
+            'slug' => 'xlarge',
+        ),
+    ));
+    
     // Add WooCommerce support
     add_theme_support('woocommerce');
     add_theme_support('wc-product-gallery-zoom');
@@ -440,3 +506,167 @@ function clara_lumiere_get_full_translations() {
         ),
     );
 }
+
+/**
+ * Register Block Patterns
+ */
+function clara_lumiere_register_block_patterns() {
+    // Check if block patterns are supported
+    if (!function_exists('register_block_pattern')) {
+        return;
+    }
+
+    // Hero Section Pattern
+    register_block_pattern(
+        'clara-lumiere/hero-section',
+        array(
+            'title' => __('Hero Section', 'clara-lumiere'),
+            'description' => __('A full-width hero section with title and call-to-action buttons', 'clara-lumiere'),
+            'content' => '<!-- wp:cover {"url":"","dimRatio":50,"overlayColor":"primary","minHeight":600,"align":"full"} -->
+<div class="wp-block-cover alignfull" style="min-height:600px"><span aria-hidden="true" class="wp-block-cover__background has-primary-background-color has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:heading {"level":1,"textColor":"accent","fontSize":"xlarge"} -->
+<h1 class="has-accent-color has-text-color has-xlarge-font-size">' . esc_html(clara_lumiere_t('hero.title')) . '</h1>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"textColor":"accent","fontSize":"large"} -->
+<p class="has-accent-color has-text-color has-large-font-size">' . esc_html(clara_lumiere_t('hero.subtitle')) . '</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:buttons -->
+<div class="wp-block-buttons"><!-- wp:button {"backgroundColor":"accent","textColor":"foreground"} -->
+<div class="wp-block-button"><a class="wp-block-button__link has-foreground-color has-accent-background-color has-text-color has-background">' . esc_html(clara_lumiere_t('hero.cta')) . '</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div></div>
+<!-- /wp:cover -->',
+            'categories' => array('featured', 'header'),
+        )
+    );
+
+    // Products Grid Pattern
+    register_block_pattern(
+        'clara-lumiere/products-grid',
+        array(
+            'title' => __('Products Grid', 'clara-lumiere'),
+            'description' => __('A grid layout for displaying products', 'clara-lumiere'),
+            'content' => '<!-- wp:heading {"textAlign":"center","level":2} -->
+<h2 class="has-text-align-center">' . esc_html(clara_lumiere_t('products.featured')) . '</h2>
+<!-- /wp:heading -->
+
+<!-- wp:columns {"align":"wide"} -->
+<div class="wp-block-columns alignwide"><!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"sizeSlug":"large"} -->
+<figure class="wp-block-image size-large"><img alt=""/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3} -->
+<h3>Product Name</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Product description goes here.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"sizeSlug":"large"} -->
+<figure class="wp-block-image size-large"><img alt=""/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3} -->
+<h3>Product Name</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Product description goes here.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"sizeSlug":"large"} -->
+<figure class="wp-block-image size-large"><img alt=""/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3} -->
+<h3>Product Name</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Product description goes here.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->',
+            'categories' => array('featured', 'gallery'),
+        )
+    );
+
+    // About Section Pattern
+    register_block_pattern(
+        'clara-lumiere/about-section',
+        array(
+            'title' => __('About Section', 'clara-lumiere'),
+            'description' => __('A two-column about section with text and image', 'clara-lumiere'),
+            'content' => '<!-- wp:columns {"align":"wide"} -->
+<div class="wp-block-columns alignwide"><!-- wp:column -->
+<div class="wp-block-column"><!-- wp:heading {"level":2} -->
+<h2>' . esc_html(clara_lumiere_t('about.title')) . '</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"fontSize":"large"} -->
+<p class="has-large-font-size">' . esc_html(clara_lumiere_t('about.subtitle')) . '</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Add your about content here.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"sizeSlug":"large"} -->
+<figure class="wp-block-image size-large"><img alt=""/></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->',
+            'categories' => array('featured', 'text'),
+        )
+    );
+
+    // Contact Info Pattern
+    register_block_pattern(
+        'clara-lumiere/contact-info',
+        array(
+            'title' => __('Contact Information', 'clara-lumiere'),
+            'description' => __('Display contact information with icons', 'clara-lumiere'),
+            'content' => '<!-- wp:heading {"level":2} -->
+<h2>' . esc_html(clara_lumiere_t('contact.title')) . '</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Nessvegen 21, 7550 Hommelvik, Norway</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>+47 972 878 89</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>info@claralumiere.com</p>
+<!-- /wp:paragraph -->',
+            'categories' => array('text'),
+        )
+    );
+}
+add_action('init', 'clara_lumiere_register_block_patterns');
+
+/**
+ * Register Block Pattern Category
+ */
+function clara_lumiere_register_block_pattern_category() {
+    if (!function_exists('register_block_pattern_category')) {
+        return;
+    }
+
+    register_block_pattern_category(
+        'clara-lumiere',
+        array('label' => __('Clara Lumiere', 'clara-lumiere'))
+    );
+}
+add_action('init', 'clara_lumiere_register_block_pattern_category');
